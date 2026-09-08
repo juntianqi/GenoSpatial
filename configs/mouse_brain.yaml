@@ -1,0 +1,68 @@
+inputs:
+  expression_h5ad: data/Xenium_Prime_Mouse_Brain_Coronal_FF_HG-DGI.h5ad
+  stcase_h5ad: data/Xenium_Prime_Mouse_Brain_Coronal_FF_STCase_v2.h5ad
+  sequence_hdf5: data/mm10_borzoi_embeddings_center.h5
+  gtf: data/gencode.vM25.annotation.gtf
+  cell_type_csv: data/cell_type_subcluster.csv
+
+data:
+  cell_type_column: cell_type_sub
+  spatial_cluster_column: X_hg_final_cluster
+  environment_key: X_hg_final_emb
+  ccc_sender_key: X_ccc_sender
+  ccc_receiver_key: X_ccc_receiver
+  subcluster_column: spatial_sub_cluster
+  lr_information_key: LR_pair_information
+  lr_complex_key: DB_complex
+  lr_weight_key: LR_cell_weight
+  minimum_niche_cells: 500
+  minimum_subcluster_cells: 150
+
+split:
+  train_chromosomes: [chr1, chr2, chr3, chr4, chr5, chr6, chr7, chr8, chr9, chr10, chr11, chr12, chrX]
+  validation_chromosomes: [chr13, chr14, chr15]
+  test_chromosomes: [chr16, chr17, chr18, chr19]
+
+model:
+  seq_len: 624
+  seq_channels: 1920
+  cell_embed_dim: 128
+  environment_dim: 128
+  hidden_dim: 128
+  num_heads: 4
+  num_factors: 8
+  branch_dropout_probability: 0.25
+  predictor_dropout_probability: 0.2
+
+training:
+  epochs: 150
+  batch_size: 256
+  validation_batch_size: 256
+  test_batch_size: 128
+  train_workers: 4
+  validation_workers: 0
+  test_workers: 0
+  validation_every_steps: 250
+  device: auto
+
+loss:
+  name: HuberLoss
+  delta: 0.1
+
+optimizer:
+  name: AdamW
+  learning_rate: 0.00005
+  weight_decay: 0.001
+
+early_stopping:
+  patience: 10
+  minimum_delta: 0.0001
+
+output:
+  directory: outputs/mouse_brain
+  checkpoint_name: best_Advtrimodal_model_v12_r.pth
+  history_name: training_history.json
+
+cache:
+  mode: "off"
+  path: cache/mouse_brain_prepared.h5

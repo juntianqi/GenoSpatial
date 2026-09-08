@@ -1,0 +1,36 @@
+# Authoritative and cached inputs
+data/
+cache/
+*.h5ad
+*.h5
+*.hdf5
+*.gtf
+
+# Checkpoints and generated results
+checkpoints/
+outputs/
+predictions/
+logs/
+*.pth
+*.pt
+*.ckpt
+
+# Python and test caches
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.pytest_tmp*/
+.coverage
+htmlcov/
+
+# Notebook and local environments
+.ipynb_checkpoints/
+.venv/
+venv/
+env/
+
+# Editors and operating systems
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db

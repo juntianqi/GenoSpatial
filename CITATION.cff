@@ -1,0 +1,9 @@
+cff-version: 1.2.0
+message: "If you use GenoSpatial, please cite this software and the associated manuscript when available."
+title: "GenoSpatial"
+type: software
+authors:
+  - name: "GenoSpatial contributors"
+version: "0.1.0"
+date-released: 2026-09-08
+license: MIT
