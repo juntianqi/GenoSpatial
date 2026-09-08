@@ -151,3 +151,4 @@ class GenoSpatialModel(nn.Module):
         z_final = self.fusion_norm(z_baseline + environment_output + ccc_output)
         expression_prediction = self.predictor(z_final)
         return expression_prediction.squeeze(-1)
+

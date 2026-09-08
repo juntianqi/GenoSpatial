@@ -92,6 +92,7 @@ class EchoModel(nn.Module):
 def test_validate_uses_sample_weighted_batch_loss_and_global_pearson():
     loader = DataLoader(ValidationDataset(), batch_size=2, shuffle=False)
     result = validate(EchoModel(), loader, torch.device("cpu"), delta=0.1)
+    # Predictions equal targets, so every Huber term is zero and Pearson is one.
     assert result.loss == 0.0
     assert result.pearson_r == pytest.approx(1.0)
     np.testing.assert_array_equal(result.predictions, [0.0, 1.0, 2.0])

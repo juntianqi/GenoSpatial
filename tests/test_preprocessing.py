@@ -202,6 +202,7 @@ def test_gene_weight_formula_and_missing_gene_failure():
     weights = calculate_gene_weights_from_marker_tables(
         cell_markers, niche_markers, ["g1"], ["g2"]
     )
+    # Median of positive maxima [4, 1] is 2.5.
     assert weights == {"g1": 2.6, "g2": 1.4}
 
     with pytest.raises(PreprocessingError, match="g3"):

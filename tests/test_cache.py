@@ -58,3 +58,4 @@ def test_cache_rejects_mismatched_signature(tmp_path):
     save_prepared_cache(cache_path, _prepared(tmp_path), {"schema": 1})
     with pytest.raises(CacheError, match="signature"):
         load_prepared_cache(cache_path, expected_signature={"schema": 2})
+

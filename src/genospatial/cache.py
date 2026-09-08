@@ -155,3 +155,4 @@ def prepare_and_cache(config: Mapping[str, Any]) -> PreparedTrainingData:
     signature = build_cache_signature(config)
     save_prepared_cache(config["cache"]["path"], prepared, signature)
     return prepared
+
