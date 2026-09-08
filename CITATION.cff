@@ -3,7 +3,8 @@ message: "If you use GenoSpatial, please cite this software and the associated m
 title: "GenoSpatial"
 type: software
 authors:
-  - name: "GenoSpatial contributors"
+  - family-names: Qi
+    given-names: Juntian
 version: "0.1.0"
 date-released: 2026-09-08
 license: MIT
