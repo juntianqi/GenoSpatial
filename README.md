@@ -2,6 +2,10 @@
 
 GenoSpatial is a context-aware sequence-to-expression framework that conditions gene-centred genomic sequence on cell identity, local spatial environment and receiver-side cell–cell communication features.
 
+<p align="center">
+  <img src="assets/genospatial_overview.png" alt="GenoSpatial model overview" width="100%">
+</p>
+
 ## Repository scope
 
 The current public release is limited to the main-model mouse-brain training implementation. It does not provide the complete analysis collection associated with the manuscript.
